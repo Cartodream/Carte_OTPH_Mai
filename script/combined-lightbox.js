@@ -5,6 +5,17 @@ document.addEventListener('DOMContentLoaded', function() {
     // Variables pour le diaporama
     let currentSlideIndex = 0;
     let slideImages = [];
+    // Exposer pour usage externe (detail-panel)
+    window._lightbox = { get slideImages() { return slideImages; }, get currentSlideIndex() { return currentSlideIndex; },
+        open(imgs) {
+            slideImages = imgs;
+            currentSlideIndex = 0;
+            modalImg.src = slideImages[0];
+            modal.style.display = 'flex';
+            if (slideImages.length > 1) { slideshowControls.style.display = 'flex'; slideCounter.textContent = `1/${slideImages.length}`; }
+            else { slideshowControls.style.display = 'none'; }
+        }
+    };
 
     // Éléments du DOM
     const modal = document.querySelector('.image-modal');
@@ -51,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Délégation d'événements pour les images dans les popups
     document.addEventListener('click', function(event) {
-        if (event.target && event.target.classList.contains('popup-thumbnail')) {
+        if (event.target && (event.target.classList.contains('popup-thumbnail') || event.target.classList.contains('detail-thumbnail'))) {
             const img1 = event.target.getAttribute('data-full-img');
             slideImages = [img1];
             

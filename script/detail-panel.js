@@ -118,9 +118,15 @@ document.addEventListener('DOMContentLoaded', function() {
         // Ajouter des gestionnaires pour les images (pour la lightbox)
         const detailImage = poiListContainer.querySelector('.detail-thumbnail');
         if (detailImage) {
-            detailImage.addEventListener('click', function() {
-                // Utiliser la fonction existante pour ouvrir la lightbox
-                window.openLightbox(this);
+            detailImage.style.cursor = 'pointer';
+            detailImage.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const imgs = [this.getAttribute('data-full-img')];
+                for (let i = 2; i <= 13; i++) {
+                    const img = this.getAttribute(`data-photo${i}`);
+                    if (img && img !== '' && img !== 'null') imgs.push(img);
+                }
+                window._lightbox.open(imgs);
             });
         }
     };
