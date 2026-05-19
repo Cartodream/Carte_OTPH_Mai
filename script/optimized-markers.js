@@ -154,7 +154,8 @@ function showPoiInSidePanel(poiData) {
     content += `<h3 style="text-align: center;">${logoHtml}${displayName}</h3>`;
     
     if (poiData.photo) {
-        content += `<img src="${poiData.photo}" alt="${displayName}" class="poi-detail-image popup-thumbnail" 
+        content += `<div class="poi-detail-image" style="position:relative;">
+                     <img src="${poiData.photo}" alt="${displayName}" class="detail-thumbnail" 
                      data-full-img="${poiData.photo}"
                      data-photo2="${poiData.photo2 || ''}"
                      data-photo3="${poiData.photo3 || ''}"
@@ -167,7 +168,22 @@ function showPoiInSidePanel(poiData) {
                      data-photo10="${poiData.photo10 || ''}"
                      data-photo11="${poiData.photo11 || ''}"
                      data-photo12="${poiData.photo12 || ''}"
-                     data-photo13="${poiData.photo13 || ''}">`;
+                     data-photo13="${poiData.photo13 || ''}">
+                     <button class="expand-btn popup-thumbnail"
+                         data-full-img="${poiData.photo}"
+                         data-photo2="${poiData.photo2 || ''}"
+                         data-photo3="${poiData.photo3 || ''}"
+                         data-photo4="${poiData.photo4 || ''}"
+                         data-photo5="${poiData.photo5 || ''}"
+                         data-photo6="${poiData.photo6 || ''}"
+                         data-photo7="${poiData.photo7 || ''}"
+                         data-photo8="${poiData.photo8 || ''}"
+                         data-photo9="${poiData.photo9 || ''}"
+                         data-photo10="${poiData.photo10 || ''}"
+                         data-photo11="${poiData.photo11 || ''}"
+                         data-photo12="${poiData.photo12 || ''}"
+                         data-photo13="${poiData.photo13 || ''}">⛶ Agrandir</button>
+                 </div>`;
     }
     
     // Gérer la description selon la langue

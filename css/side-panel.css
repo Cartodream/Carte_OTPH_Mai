@@ -176,3 +176,21 @@
 .poi-button:hover {
     background-color: #6B8A52;
 }
+
+.expand-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    z-index: 10;
+}

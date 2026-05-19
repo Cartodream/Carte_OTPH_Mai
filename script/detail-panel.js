@@ -48,6 +48,22 @@ document.addEventListener('DOMContentLoaded', function() {
                          data-photo11="${properties.photo11 || ''}"
                          data-photo12="${properties.photo12 || ''}"
                          data-photo13="${properties.photo13 || ''}">
+                    <button class="expand-btn popup-thumbnail"
+                         data-full-img="${properties.photo}" 
+                         data-photo2="${properties.photo2 || ''}"
+                         data-photo3="${properties.photo3 || ''}"
+                         data-photo4="${properties.photo4 || ''}"
+                         data-photo5="${properties.photo5 || ''}"
+                         data-photo6="${properties.photo6 || ''}"
+                         data-photo7="${properties.photo7 || ''}"
+                         data-photo8="${properties.photo8 || ''}"
+                         data-photo9="${properties.photo9 || ''}"
+                         data-photo10="${properties.photo10 || ''}"
+                         data-photo11="${properties.photo11 || ''}"
+                         data-photo12="${properties.photo12 || ''}"
+                         data-photo13="${properties.photo13 || ''}">
+                        ⛶ Agrandir
+                    </button>
                 </div>
             `;
         }
@@ -119,15 +135,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const detailImage = poiListContainer.querySelector('.detail-thumbnail');
         if (detailImage) {
             detailImage.style.cursor = 'pointer';
-            detailImage.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const imgs = [this.getAttribute('data-full-img')];
-                for (let i = 2; i <= 13; i++) {
-                    const img = this.getAttribute(`data-photo${i}`);
-                    if (img && img !== '' && img !== 'null') imgs.push(img);
-                }
-                window._lightbox.open(imgs);
-            });
         }
     };
     
